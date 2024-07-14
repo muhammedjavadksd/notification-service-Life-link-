@@ -10,8 +10,6 @@ dotenv.config("./.env");
 
 const consumeRabbitMQ = require("./helper/consumeMessage");
 
-
-
 //const
 const PORT = process.env.PORT || 7003
 

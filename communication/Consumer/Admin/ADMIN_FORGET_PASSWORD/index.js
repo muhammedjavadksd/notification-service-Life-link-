@@ -8,7 +8,8 @@ const nodeMailer = require("nodemailer");
 module.exports = async function AdminForgetPasswordConsume() {
 
     let queue = process.env.ADMIN_FORGETPASSWORD_EMAIL;
-    console.log(queue);
+    console.log("Admin forget password email");
+    // console.log(process.env.FRONT_END_URL);
     let channel = await communicationConnection();
 
     await channel.assertQueue(queue, { durable: true });
