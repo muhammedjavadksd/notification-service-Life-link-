@@ -6,30 +6,30 @@ const nodeMailer = require("nodemailer");
 
 async function profileUpdateNotificationConsumer() {
 
-    let queueName = process.env.EMAIL_PROFILE_UPDATE_OTP;
+    const queueName = process.env.EMAIL_PROFILE_UPDATE_OTP;
 
     try {
 
-        let channel = await communicationConnection();
+        const channel = await communicationConnection();
         await channel.assertQueue(queueName, { durable: true });
         channel.consume(queueName, (msg) => {
 
 
             console.log("Consuming auth transfer data");
             if (msg) {
-                let parseMessage = JSON.parse(msg.content.toString());
-                let { email_id, type, otp, full_name } = parseMessage;
+                const parseMessage = JSON.parse(msg.content.toString());
+                const { email_id, type, otp, full_name } = parseMessage;
 
-                let emailTemplate = mailTemplate.profileUpdateEmailTemplate(email_id, otp, full_name);
+                const emailTemplate = mailTemplate.profileUpdateEmailTemplate(email_id, otp, full_name);
 
-                let mailTransport = nodeMailer.createTransport({
+                const mailTransport = nodeMailer.createTransport({
                     service: const_data.MAIL_CONFIG.service,
                     auth: const_data.MAIL_CONFIG.auth
                 })
 
 
                 console.log(const_data.MAIL_CONFIG.auth.user)
-                let mailOption = {
+                const mailOption = {
                     from: const_data.MAIL_CONFIG.auth.user,
                     to: email_id,
                     subject: 'Profile update OTP',

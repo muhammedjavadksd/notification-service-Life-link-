@@ -18,21 +18,22 @@ async function organizationForgetPassword() {
         console.log("Organization Forget password", msg)
 
         if (msg) {
-            let jsonFormat = JSON.parse(msg.content.toString())
+            const jsonFormat = JSON.parse(msg.content.toString())
             console.log(jsonFormat);
 
-            let { token, email, name } = jsonFormat;
+            const { token, email, name } = jsonFormat;
 
-            let url = `${process.env.FRONT_END_URL}/organization/auth/reset_password/${token}`
+            const url = `${process.env.FRONT_END_URL}/organization/auth/reset_password/${token}`
+            
 
-            let mailContent = mailTemplate.organizationForgetPasswordTemplate(url, name)
-            let mailTransport = nodeMailer.createTransport({
+            const mailContent = mailTemplate.organizationForgetPasswordTemplate(url, name)
+            const mailTransport = nodeMailer.createTransport({
                 service: const_data.MAIL_CONFIG.service,
                 auth: const_data.MAIL_CONFIG.auth
             })
 
             // console.log(const_data.MAIL_CONFIG.auth.user)
-            let mailOption = {
+            const mailOption = {
                 from: const_data.MAIL_CONFIG.auth.user,
                 to: email,
                 subject: 'Organization Password Reset Request',

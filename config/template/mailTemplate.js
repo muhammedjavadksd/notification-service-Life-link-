@@ -1,12 +1,12 @@
 
 
-let mailTemplate = {
+const mailTemplate = {
 
 
 
     otpMailTemplate: (otp, recipientName) => {
 
-        let template = `<!DOCTYPE html>
+        const template = `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -37,7 +37,7 @@ let mailTemplate = {
 
     adminForgetPasswordMailTemplate: (url, name) => {
 
-        let template = `<!DOCTYPE html>
+        const template = `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -91,7 +91,7 @@ let mailTemplate = {
 
     organizationForgetPasswordTemplate: (url, name) => {
 
-        let template = `
+        const template = `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -148,7 +148,7 @@ let mailTemplate = {
 
     profileUpdateEmailTemplate: (email_id, otp, user_name) => {
 
-        let template = `<!DOCTYPE html>
+        const template = `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">

@@ -20,20 +20,20 @@ async function SingInConsumerOTP() {
 
         console.log("Consume Sign IN OTP", message)
         if (message) {
-            let data = JSON.parse(message.content.toString())
+            const data = JSON.parse(message.content.toString())
             console.log(data)
 
-            let { otp, email, full_name } = data;
-            let mailContent = mailTemplate.otpMailTemplate(otp, full_name)
+            const { otp, email, full_name } = data;
+            const mailContent = mailTemplate.otpMailTemplate(otp, full_name)
 
 
-            let mailTransport = nodeMailer.createTransport({
+            const mailTransport = nodeMailer.createTransport({
                 service: const_data.MAIL_CONFIG.service,
                 auth: const_data.MAIL_CONFIG.auth
             })
 
 
-            let mailOption = {
+            const mailOption = {
                 from: const_data.MAIL_CONFIG.auth.user,
                 to: email,
                 subject: 'Sign IN OTP',

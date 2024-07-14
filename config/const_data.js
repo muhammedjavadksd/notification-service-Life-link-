@@ -1,5 +1,5 @@
 
-let const_data = {
+const const_data = {
     // NOTIFICATION_QUEUE: "NOTIFICATION_QUEUE"
     TYPE_OF_NOTIFICATION: {
         USER_SIGN_UP_OTP: "USER_SIGN_UP_OTP"
