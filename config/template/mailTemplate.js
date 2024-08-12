@@ -226,6 +226,75 @@ const mailTemplate = {
 
 
         return template;
+    },
+
+
+    bloodRequestEmail: (blood_group, full_name, location, date) => {
+
+        const template = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgent Blood Donation Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Urgent Blood Donation Request</h1>
+        <p>Dear ${full_name},</p>
+        <p>We have received an urgent blood donation request for a <strong>${blood_group}</strong> donor. Your profile indicates that you are a match, and we would like to ask if you can assist with this crucial need.</p>
+        <p><strong>Details of the Request:</strong></p>
+        <ul>
+            <li><strong>Blood Type Needed:</strong> ${blood_group}</li>
+            <li><strong>Location:</strong> ${location}</li>
+            <li><strong>Date :</strong> ${date}</li>
+        </ul>
+        <p>If you are available and willing to donate, please sign in account</p>
+        <p>Thank you for your willingness to help in this critical situation.</p>
+        <p><a href="${process.env.FRONT_END_URL}/account">Open account</a></p>
+        <div class="footer">
+            <p>Best regards,</p>
+            <p>Life Link<br>
+        </div>
+    </div>
+</body>
+</html>
+        `;
+
+
+        return template;
     }
 }
 
