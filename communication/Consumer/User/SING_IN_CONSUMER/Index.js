@@ -40,6 +40,8 @@ async function SingInConsumerOTP() {
                 html: mailContent
             };
 
+            console.log(mailOption);
+
             return new Promise((resolve, reject) => {
                 mailTransport.sendMail(mailOption).then(() => {
                     console.log("User Sign In OTP has been sent")

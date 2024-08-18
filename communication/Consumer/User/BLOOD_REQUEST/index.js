@@ -50,4 +50,5 @@ async function bloodRequest() {
 
 }
 
-export default bloodRequest
+// export default bloodRequest
+module.exports = bloodRequest
