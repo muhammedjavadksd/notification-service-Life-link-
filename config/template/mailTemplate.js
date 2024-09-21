@@ -1,7 +1,94 @@
+const const_data = require("../const_data");
 
 
 const mailTemplate = {
 
+
+    newChatMessageEmailTemplate: (user_name, msg, from_name) => {
+        return `Dear ${user_name},
+            You have received a new message on your account from ${from_name}.Please log in to view and respond at your convenience.
+            ${msg}
+            If you have any questions, feel free to reach out.
+            Best regards,
+            Life Link`
+    },
+
+    accountVerificationEmailContent: (user_name, token) => {
+        return `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Account Verification</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        line-height: 1.6;
+                        margin: 0;
+                        padding: 20px;
+                        background-color: #f4f4f4;
+                    }
+                    .container {
+                        background-color: #ffffff;
+                        padding: 20px;
+                        border-radius: 5px;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    }
+                    a {
+                        color: #3498db;
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <p>Dear ${user_name},</p>
+                    <p>We need more details to complete your account setup. Please click the link below to provide the necessary information:</p>
+                    <p>
+                        <a href="https://localhost:3000/auth/complete/${token}">Complete account</a>
+                    </p>
+                    <p>If you have any questions or need assistance, feel free to reach out.</p>
+                    <p>Best regards,<br>Life Link</p>
+                </div>
+            </body>
+            </html>
+        `;
+    },
+
+
+    fundraiserCloseVerificationTemplate: (token, recipientName, collectedAmount) => {
+        const template = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fundraising Closure Verification</title>
+        </head>
+        <body>
+            <p>Dear ${recipientName},</p>
+            
+            <p>We are reaching out to confirm the closure of your fundraising campaign. As part of our process, we require verification to ensure the security and integrity of the campaign. Please open the verification link provided below to confirm the closure of your fundraiser:</p>
+            
+            
+            <p>The total amount collected during this campaign is <strong>Rs${collectedAmount}-/ only</strong>. Please verify this information and complete the closure process within the next 15 minutes to ensure that the funds are securely handled.</p>
+            
+            <p>If you did not request to close the fundraiser or if you need further assistance, please contact our support team immediately.</p>
+            
+            <p>Thank you for your efforts in supporting the cause.</p>
+            <p><strong>Verification Token: ${process.env.FRONT_END_URL}/fund-raising/close/${token}</strong></p>
+            
+            <p>Best regards,</p>
+            <p>Life Link</p>
+        </body>
+        </html>
+        `;
+
+        return template;
+    },
 
 
     otpMailTemplate: (otp, recipientName) => {

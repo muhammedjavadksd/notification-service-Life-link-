@@ -7,7 +7,10 @@ const SingInConsumerOTP = require("../communication/Consumer/User/SING_IN_CONSUM
 const AdminForgetPasswordConsume = require("../communication/Consumer/Admin/ADMIN_FORGET_PASSWORD/index");
 const profileUpdateNotificationConsumer = require("../communication/Consumer/User/PROFILE_UPDATE_CONSUMER");
 const organizationForgetPassword = require("../communication/Consumer/Organization/Organization Forget Password");
-const { default: bloodRequest } = require("../communication/Consumer/User/BLOOD_REQUEST");
+const bloodRequest = require("../communication/Consumer/User/BLOOD_REQUEST");
+const CloseFundRaiserVerification = require("../communication/Consumer/User/FundRaiserCloseEmail");
+const ChatEmail = require("../communication/Consumer/User/ChatEmail");
+const AccountVerificationEmail = require("../communication/Consumer/User/AccountVerificationEmail");
 
 
 
@@ -22,6 +25,9 @@ async function consumeRabbitMQ() {
     profileUpdateNotificationConsumer()
     organizationForgetPassword()
     bloodRequest()
+    CloseFundRaiserVerification()
+    ChatEmail()
+    AccountVerificationEmail()
 
     // const queue = process.env.USER_SIGN_UP_NOTIFICATION
 

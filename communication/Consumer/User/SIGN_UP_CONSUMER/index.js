@@ -8,16 +8,16 @@ const { communicationConnection } = require("../../../config");
 async function SignUpOTPConsumer() {
 
     const queue = process.env.USER_SIGN_UP_NOTIFICATION
-    
-    
+
+
     const channel = await communicationConnection();
-    
-    
+
+
     await channel.assertQueue(queue, { durable: true });
     console.log("Reached here");
     await channel.consume(queue, (message) => {
- 
-       console.log("Consume Sign Up OTP", message)
+
+        console.log("Consume Sign Up OTP", message)
         if (message) {
             const data = JSON.parse(message.content.toString())
             console.log(data)

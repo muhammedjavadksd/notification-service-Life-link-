@@ -4,6 +4,13 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 
+// interface IChatNotification {
+//     msg: string
+//     subject: string,
+//     email_id: string
+// }
+//  
+
 
 //Config
 dotenv.config("./.env");
