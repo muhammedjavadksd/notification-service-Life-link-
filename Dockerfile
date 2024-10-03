@@ -3,4 +3,5 @@ WORKDIR ./app/notification
 COPY .package*.json ./
 COPY . .
 RUN npm install
+RUN npm update
 CMD ["npm","start"]

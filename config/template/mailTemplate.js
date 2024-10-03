@@ -90,6 +90,40 @@ const mailTemplate = {
         return template;
     },
 
+    fundRaiserPaymentSuccess: (name, amount, title, download_url) => {
+        const template = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Thank You for Your Donation</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <table style="width: 100%; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px;">
+                <tr>
+                    <td>
+                        <h2 style="color: #333;">Heartfelt Thanks for Your Generous Donation!</h2>
+                        <p>Dear <strong>${name}</strong>,</p>
+                        <p>I hope this message finds you well.</p>
+                        <p>On behalf of <strong>Life Link</strong>, I want to extend our deepest gratitude for your generous contribution towards our recent fundraising campaign. Your donation of <strong>${amount}</strong> will make a significant impact on <strong>${title}</strong>.</p>
+                        <p>Additionally, as a token of our appreciation, we’ve prepared a certificate for you. You can download it using the link below:</p>
+                         <p><a href="${download_url}" style="background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Download Your Certificate</a></p>
+                        <p>If you have any questions or need further information, feel free to reach out.</p>
+                        <p>Warm regards,</p>
+                        <p><strong>Life Link</strong><br>
+                        +91 9744727684
+                        contact@life-link.online
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>
+        `;
+
+        return template;
+    },
+
 
     otpMailTemplate: (otp, recipientName) => {
 
