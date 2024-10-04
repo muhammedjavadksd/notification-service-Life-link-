@@ -12,6 +12,7 @@ const CloseFundRaiserVerification = require("../communication/Consumer/User/Fund
 const ChatEmail = require("../communication/Consumer/User/ChatEmail");
 const AccountVerificationEmail = require("../communication/Consumer/User/AccountVerificationEmail");
 const FundRaiserPaymentSucessMail = require("../communication/Consumer/User/FundRaiserDonationSuccess");
+const TicketNotification = require("../communication/Consumer/User/TicketConsumer");
 
 
 
@@ -30,6 +31,9 @@ async function consumeRabbitMQ() {
     ChatEmail()
     AccountVerificationEmail()
     FundRaiserPaymentSucessMail()
+    TicketNotification.closedNotification()
+    TicketNotification.ticketCloseWarning()
+
 
     // const queue = process.env.USER_SIGN_UP_NOTIFICATION
 

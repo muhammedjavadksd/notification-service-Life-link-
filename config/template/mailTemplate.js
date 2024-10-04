@@ -124,6 +124,106 @@ const mailTemplate = {
         return template;
     },
 
+    ticketClosedMail: (name, ticket_id, title) => {
+        const template = `<!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Ticket Closed Notification</title>
+                        <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                        }
+                        .container {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            padding: 20px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            background-color: #f9f9f9;
+                        }
+                        h2 {
+                            color: #333;
+                        }
+                        p {
+                            color: #555;
+                        }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                        <h2>Ticket ${ticket_id} Closed</h2>
+                        <p>Dear ${name}</p>
+                        <p>We are writing to inform you that your support ticket (ID: ${ticket_id}) titled "<strong>${title}</strong>" has been successfully closed.</p>
+                        <p>If you have any further questions or need additional assistance, please don't hesitate to reach out to us.</p>
+                        <p>Thank you for reaching out to us.</p>
+                        <p>Best regards,<br />Life Link Support Team</p>
+                        </div>
+                    </body>
+                    </html>
+                    `;
+
+        return template;
+    },
+
+    ticketClosedWarningMail: (name, ticket_id, title, close_date) => {
+        const template = `<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Ticket Closure Warning</title>
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #f8d7da;
+                border-radius: 8px;
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            h2 {
+                color: #721c24;
+            }
+            p {
+                color: #555;
+            }
+            .highlight {
+                font-weight: bold;
+                color: #721c24;
+            }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+            <h2>Warning: Ticket ${ticket_id} Will Be Closed Soon</h2>
+            <p>Dear ${name},</p>
+            <p>
+                We are sending you this message to inform you that your support ticket (ID: 
+                <span class="highlight">${ticket_id}</span>) titled "<strong>${title}</strong>" is scheduled to be closed on 
+                <strong>${close_date}</strong>.
+            </p>
+            <p>
+                If your issue has not been resolved or if you require further assistance, please reach out to us before the 
+                mentioned date to keep the ticket open.
+            </p>
+            <p>
+                If no action is taken by the specified closure date, the ticket will be automatically closed.
+            </p>
+            <p>Thank you for your understanding.</p>
+            <p>Best regards,<br />Life Link Support Team</p>
+            </div>
+        </body>
+        </html>
+        `;
+
+        return template;
+    },
+
+
 
     otpMailTemplate: (otp, recipientName) => {
 
