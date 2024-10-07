@@ -1,14 +1,15 @@
 // const mailTemplate = require("../../../../config/template/mailTemplate");
-const { communicationConnection } = require("../../../config");
+// const { communicationConnection } = require("../../../config");
 
 const nodeMailer = require("nodemailer");
 const mailTemplate = require("../../../config/template/mailTemplate");
 const const_data = require("../../../config/const_data");
+const { communicationConnection } = require("../../config");
 
 module.exports = async function adminSiteUpdate() {
 
     const queue = process.env.ADMIN_UPDATE_VERIFY;
-    console.log("Admin forget password email");
+    console.log("Admin setting email");
     const channel = await communicationConnection();
 
     await channel.assertQueue(queue, { durable: true });
@@ -16,6 +17,7 @@ module.exports = async function adminSiteUpdate() {
 
         if (msg) {
             const jsonFormat = JSON.parse(msg.content.toString())
+            console.log("Dat found");
             console.log(jsonFormat);
 
             const { token, email_id } = jsonFormat;
