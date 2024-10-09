@@ -1,4 +1,4 @@
-const mailTemplate = require("../../../config/template/mailTemplate");
+const mailTemplate = require("../../../config/mailTemplate");
 
 
 module.exports = async function chatEmail() {

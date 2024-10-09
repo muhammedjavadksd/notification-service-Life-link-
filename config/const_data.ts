@@ -1,17 +1,13 @@
 
 const const_data = {
-    // NOTIFICATION_QUEUE: "NOTIFICATION_QUEUE"
     TYPE_OF_NOTIFICATION: {
         USER_SIGN_UP_OTP: "USER_SIGN_UP_OTP"
     },
-
     OTP_EXPIRE_TIME: 1800000,
     OTP_TYPE: {
         SIGN_UP_OTP: "SIGN_UP_OTP",
         SIGN_IN_OTP: "SIGN_IN_OTP"
     },
-
-
     MAIL_CONFIG: {
         host: "smtp.example.com",
         port: 587,
@@ -23,5 +19,7 @@ const const_data = {
     }
 }
 
-module.exports = const_data;
+
+export default const_data
+// module.exports = const_data;
 

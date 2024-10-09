@@ -1,6 +1,6 @@
 const const_data = require("../../../../config/const_data");
 const { MAIL_CONFIG } = require("../../../../config/const_data");
-const mailTemplate = require("../../../../config/template/mailTemplate");
+const mailTemplate = require("../../../../config/mailTemplate");
 const { communicationConnection } = require("../../../config");
 
 const nodeMailer = require("nodemailer");
@@ -29,6 +29,9 @@ module.exports = async function AdminForgetPasswordConsume() {
                 service: const_data.MAIL_CONFIG.service,
                 auth: const_data.MAIL_CONFIG.auth
             })
+
+            console.log("TO email id")
+            console.log(email)
 
             // console.log(const_data.MAIL_CONFIG.auth.user)
             const mailOption = {

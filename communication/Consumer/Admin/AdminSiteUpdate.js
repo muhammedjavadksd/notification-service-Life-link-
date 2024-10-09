@@ -2,7 +2,7 @@
 // const { communicationConnection } = require("../../../config");
 
 const nodeMailer = require("nodemailer");
-const mailTemplate = require("../../../config/template/mailTemplate");
+const mailTemplate = require("../../../config/mailTemplate");
 const const_data = require("../../../config/const_data");
 const { communicationConnection } = require("../../config");
 

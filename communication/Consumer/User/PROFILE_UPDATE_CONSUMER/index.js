@@ -1,5 +1,5 @@
 const const_data = require("../../../../config/const_data");
-const mailTemplate = require("../../../../config/template/mailTemplate");
+const mailTemplate = require("../../../../config/mailTemplate");
 const { communicationConnection } = require("../../../config");
 const nodeMailer = require("nodemailer");
 

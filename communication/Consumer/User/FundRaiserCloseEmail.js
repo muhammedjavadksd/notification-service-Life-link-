@@ -1,7 +1,7 @@
 // import mailTemplate from "../../../config/template/mailTemplate";
 // import { communicationConnection } from "../../config";
 // import { communicationConnection } from "../../config";
-const mailTemplate = require("../../../config/template/mailTemplate");
+const mailTemplate = require("../../../config/mailTemplate");
 const { communicationConnection } = require("../../config")
 const nodeMailer = require("nodemailer");
 const const_data = require("../../../config/const_data");
