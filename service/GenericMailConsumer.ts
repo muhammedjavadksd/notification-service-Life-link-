@@ -41,7 +41,7 @@ class GenericMailConsumerService {
                 }
             }
         },
-            { noAck: true } // Manual acknowledgement
+            { noAck: true }
         );
     }
 }
