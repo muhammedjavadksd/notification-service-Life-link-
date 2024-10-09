@@ -8,9 +8,8 @@ interface IConsumerList {
     recipientEmailKey: string
 }
 
-const consumerReciever = new GenericMailConsumerService();
 
-const consumersList: IConsumerList[] = [
+export const consumersList: IConsumerList[] = [
     {
         queue: process.env.USER_SIGN_UP_NOTIFICATION || "",
         mailTemplate: ({ otp, recipientEmail }: { otp: number, recipientEmail: string }) => mailTemplates.otpMailTemplate(otp, recipientEmail),
@@ -74,7 +73,5 @@ const consumersList: IConsumerList[] = [
 
 ]
 
-consumersList.forEach((consumer) => {
-    consumerReciever.consumeMessages(consumer.queue, consumer.mailTemplate, consumer.subject, consumer.recipientEmailKey);
-})
+
 
