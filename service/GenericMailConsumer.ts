@@ -18,9 +18,12 @@ class GenericMailConsumerService {
         if (!assert) {
             console.log("No channel found");
             return;
+        } else {
         }
 
+
         this.communication.consume(queue, async (message: ConsumeMessage | null) => {
+
             if (message) {
                 try {
                     const data = JSON.parse(message.content.toString());

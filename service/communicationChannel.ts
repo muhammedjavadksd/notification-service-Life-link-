@@ -31,8 +31,12 @@ class MessageQueueService {
     async consume(queueName: string, callback: (msg: ConsumeMessage | null) => void, options = { noAck: true }) {
         const channel = await this.assertQueue(queueName);
         if (channel) {
+            console.log("Channel found");
+            console.log(queueName);
+
             await channel.consume(queueName, callback, options);
         } else {
+            console.log("Not found123");
             return false;
         }
     }

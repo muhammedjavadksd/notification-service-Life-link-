@@ -15,7 +15,10 @@ const PORT = +(process.env.PORT || 7003);
 const consumerReciever = new GenericMailConsumer_1.default();
 const ticketConsumerService = new TicketConsumer_1.default();
 const bloodRequestNotificationService = new BloodServiceNotification_1.default();
+console.log(MailConsumer_1.consumersList);
+console.log(process.env);
 MailConsumer_1.consumersList.forEach((consumer) => {
+    console.log(consumer.queue);
     consumerReciever.consumeMessages(consumer.queue, consumer.mailTemplate, consumer.subject, consumer.recipientEmailKey);
 });
 ticketConsumerService.initializeConsumers();

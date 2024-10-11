@@ -26,6 +26,8 @@ class GenericMailConsumerService {
                 console.log("No channel found");
                 return;
             }
+            else {
+            }
             this.communication.consume(queue, (message) => __awaiter(this, void 0, void 0, function* () {
                 if (message) {
                     try {

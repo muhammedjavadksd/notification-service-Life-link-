@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.consumersList = void 0;
 const mailTemplate_1 = __importDefault(require("../config/mailTemplate"));
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 exports.consumersList = [
     {
         queue: process.env.USER_SIGN_UP_NOTIFICATION || "",
@@ -45,25 +47,25 @@ exports.consumersList = [
     {
         queue: process.env.FUND_RAISER_PAYMENT_SUCCESS || "",
         mailTemplate: ({ certificate_url, name, amount, campign_title, email }) => mailTemplate_1.default.fundRaiserPaymentSuccess(name, amount, campign_title, certificate_url),
-        subject: "Donation success",
+        subject: "Heartfelt Thanks for Your Generous Donation!",
         recipientEmailKey: 'email',
     },
-    {
-        queue: process.env.ADMIN_UPDATE_VERIFY || "",
-        mailTemplate: ({ token, email_id }) => {
-            const url = `${process.env.FRONT_END_URL}/admin/auth/verify-update/${token}`;
-            return mailTemplate_1.default.adminUpdateEmailTemplate(url);
-        },
-        subject: "Admin update verification",
-        recipientEmailKey: 'email_id',
-    },
-    {
-        queue: process.env.ADMIN_FORGETPASSWORD_EMAIL || "",
-        mailTemplate: ({ token, email, name }) => {
-            const url = `${process.env.FRONT_END_URL}/admin/auth/reset_password/${token}`;
-            return mailTemplate_1.default.adminForgetPasswordMailTemplate(url, name);
-        },
-        subject: "Admin reset password verification",
-        recipientEmailKey: 'email',
-    }
+    // {
+    //     queue: process.env.ADMIN_UPDATE_VERIFY || "",
+    //     mailTemplate: ({ token, email_id }: { token: string, email_id: string }) => {
+    //         const url = `${process.env.FRONT_END_URL}/admin/auth/verify-update/${token}`
+    //         return mailTemplates.adminUpdateEmailTemplate(url)
+    //     },
+    //     subject: "Admin update verification",
+    //     recipientEmailKey: 'email_id',
+    // },
+    // {
+    //     queue: process.env.ADMIN_FORGETPASSWORD_EMAIL || "",
+    //     mailTemplate: ({ token, email, name }: { token: string, email: string, name: string }) => {
+    //         const url = `${process.env.FRONT_END_URL}/admin/auth/reset_password/${token}`
+    //         return mailTemplates.adminForgetPasswordMailTemplate(url, name)
+    //     },
+    //     subject: "Admin reset password verification",
+    //     recipientEmailKey: 'email',
+    // },
 ];

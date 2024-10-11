@@ -43,9 +43,12 @@ class MessageQueueService {
         return __awaiter(this, arguments, void 0, function* (queueName, callback, options = { noAck: true }) {
             const channel = yield this.assertQueue(queueName);
             if (channel) {
+                console.log("Channel found");
+                console.log(queueName);
                 yield channel.consume(queueName, callback, options);
             }
             else {
+                console.log("Not found123");
                 return false;
             }
         });

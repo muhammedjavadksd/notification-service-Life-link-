@@ -14,8 +14,14 @@ const consumerReciever = new GenericMailConsumerService();
 const ticketConsumerService = new TicketConsumerService();
 const bloodRequestNotificationService = new BloodRequestNotificationService();
 
+console.log(consumersList);
+console.log(process.env);
+
+
 
 consumersList.forEach((consumer) => {
+    console.log(consumer.queue);
+
     consumerReciever.consumeMessages(consumer.queue, consumer.mailTemplate, consumer.subject, consumer.recipientEmailKey);
 })
 
